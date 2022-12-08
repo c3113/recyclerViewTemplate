@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
  * @author ChenKai
  * @date 2022/12/2
  */
-abstract class ModelAdapter<Model : Any, Binder: ViewHolder> : Adapter<Binder>() {
-    var values = mutableListOf<Model>()
+abstract class ModelAdapter<Binder: ViewHolder> : Adapter<Binder>() {
+    var values = mutableListOf<Any>()
         set(list) {
             values.clear()
             values.addAll(list)

@@ -8,24 +8,24 @@ import android.view.ViewGroup
  * @author ChenKai
  * @date 2022/12/2
  */
-class TemplateAdapter<Model : Any> : ModelAdapter<Model, TemplateViewHolder>() {
+class TemplateAdapter : ModelAdapter<TemplateViewHolder>() {
 
     /**
      * 存储数据模型与Binder的对应关系
      */
-    private val binderMap = mutableMapOf<Class<Model>, TemplateViewBinder<Model>>()
+    private val binderMap = mutableMapOf<Class<*>, TemplateViewBinder<Any>>()
 
     /**
      * 添加Binder与Model对应关系
      */
-    fun addBinder(clazz: Class<Model>, binder: TemplateViewBinder<Model>) {
-        binderMap[clazz] = binder
+    fun <Binder : TemplateViewBinder<*>> addBinder(clazz: Class<*>, binder: Binder) {
+        binderMap[clazz] = binder as TemplateViewBinder<Any>
     }
 
     /**
      * 移除Binder
      */
-    fun removeBinder(clazz: Class<Model>) {
+    fun removeBinder(clazz: Class<Any>) {
         binderMap.remove(clazz)
     }
 
