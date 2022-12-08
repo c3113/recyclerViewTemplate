@@ -1,6 +1,6 @@
 使用RecyclerView时，解决每个RecyclerView创建一个新的Adapter重复工作
 使用时，只需要创建一个数据Model，一个ViewBinder，ViewBinder中实现数据与View之间的映射关系，比如：
-```agsl
+```kotlin
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
